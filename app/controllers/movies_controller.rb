@@ -3,7 +3,10 @@ class MoviesController < ApplicationController
   def show
     @id = transform_episode(movie_id)
     @data = HTTParty.get("https://swapi.co/api/films/#{@id}")
+    puts @data
   end
+
+
 
 
   private
