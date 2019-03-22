@@ -1,5 +1,5 @@
 <html>
   <% @response.each do |pelicula| %>
-    <%= pelicula['title'] %><br>
+    <%= link_to pelicula['title'], index_path(pelicula['episode_id'])  %><br>
   <% end %>
 </html>
