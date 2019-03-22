@@ -27,8 +27,8 @@ class IndexController < ApplicationController
             movie_id = "4"
         elsif movie_id == "2"
             movie_id = "5"
-        elsif movie_id == "6"
-            movie_id = "3"
+        elsif movie_id == "3"
+            movie_id = "6"
         end
         return movie_id
     end
