@@ -1,12 +1,14 @@
 class MoviesController < ApplicationController
-  
+
+  include Hola
+
   def show
     @id = transform_episode(movie_id)
     @data = HTTParty.get("https://swapi.co/api/films/#{@id}")
-    puts @data
+    @personajes = api_request_characters(@data)
+    @planetas = api_request_planets(@data)
+    @naves = api_request_starships(@data)
   end
-
-
 
 
   private
@@ -31,4 +33,5 @@ class MoviesController < ApplicationController
     end
     return movie_id
   end
+
 end

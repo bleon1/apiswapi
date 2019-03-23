@@ -1,17 +1,49 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <body>
+    <head>
+      <div class="container">
+        <div class="row">
+          <h1><strong><%= @data['title'] %></strong></h1>
+        </div>
+        <div class="row">
+          <p>Directed by: <strong><%= @data['director'] %></strong></p>
+        </div><div class="row">
+          <p>Produced by: <strong><%= @data['producer'] %></strong></p>
+        </div>
+        <div class="row">
+          <p>Introduction: <%= @data['opening_crawl'] %></p>
+        </div>
+      </div>
+    </head>
     <main>
       <div class="container">
         <div class="row">
+        </div>
+        <div class="row">
           <div class="column">
-            Personajes
+            <% @id = 1%>
+            Personajes<br>
+            <% @personajes.each do |p| %>
+              <%= link_to p[1], personaje_path(id: @id, json: p[0]) %><br>
+              <% @id += 1%>
+            <% end %>
           </div>
           <div class="column">
-            Planetas
+            <% @id = 1 %>
+            Planetas<br>
+            <% @planetas.each do |p| %>
+              <%= link_to p[1], planeta_path(id: @id, json: p[0]) %><br>
+              <% @id += 1%>
+            <% end %> 
           </div>
           <div class="column">
-            Naves Espaciales
+            <% @id = 1 %>
+            Naves Espaciales<br>
+            <% @naves.each do |n| %>
+              <%= link_to n[1], spaceship_path(id: @id, json: n[0]) %><br>
+              <% @id += 1%>
+            <% end %> 
           </div>
         </div>
       </div>

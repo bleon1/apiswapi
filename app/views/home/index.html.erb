@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="en" dir="ltr">
   <body>
     <main>
@@ -29,7 +28,7 @@
                 <%= pelicula['episode_id'] %>
               </div>
               <div class="column">
-                <%= pelicula['created'].to_time.strftime('%Y') %>
+                <%= pelicula['release_date'].to_time.strftime('%Y') %>
               </div>
               <div class="column">
                 <%= pelicula['director'] %>
