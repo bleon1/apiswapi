@@ -1,1 +1,59 @@
-Planetas
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <body>
+    <head>
+      <div class="container">
+        <div class="row">
+          <h1><strong><%= @data['name'] %></strong></h1>
+        </div>
+        <div class="row">
+          <p><strong>Climate: </strong> <%= @data['climate'] %></p>
+        </div>
+        <div class="row">
+          <p><strong>Diameter: </strong> <%= @data['diameter'] %></p>
+        </div>
+        <div class="row">
+          <p><strong>Gravity: </strong><%= @data['gravity'] %></p>
+        </div>
+        <div class="row">
+          <p><strong>Orbital period: </strong> <%= @data['orbital_period'] %></p>
+        </div>
+        <div class="row">
+          <p><strong>Population: </strong> <%= @data['population'] %></p>
+        </div>
+        <div class="row">
+          <p><strong>Rotation period: </strong> <%= @data['rotation_period'] %></p>
+        </div>
+        <div class="row">
+          <p><strong>Surface water: </strong><%= @data['surface_water'] %></p>
+        </div>
+        <div class="row">
+          <p><strong>Terrain: </strong><%= @data['terrain'] %></p>
+        </div>
+      </div>
+    </head>
+    <main>
+      <div class="container">
+        <div class="row">
+          <div class="column">
+            Films<br>
+            <% @peliculas.each do |p| %>
+              <%= link_to p[0], movie_path(id: p[1]) %><br>
+            <% end %>
+          </div>
+          <div class="column">
+            <% @id = 1 %>
+            Residents<br>
+            <% @residentes.each do |r| %>
+              <%= link_to r[1], personaje_path(id: @id, json: r[0]) %><br>
+              <% @id += 1%>
+            <% end %> 
+          </div>
+        </div><br><br><br>
+        <div class="row">
+          <%= button_to "Home", root_path(), method: :get %>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

@@ -1,1 +1,71 @@
-Naves
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <body>
+    <head>
+      <div class="container">
+        <div class="row">
+          <h1><strong><%= @data['name'] %></strong></h1>
+        </div>
+        <div class="row">
+          <p><strong>MGLT: </strong> <%= @data['MGLT'] %></p>
+        </div>
+        <div class="row">
+          <p><strong>Cargo capacity: </strong> <%= @data['cargo_capacity'] %></p>
+        </div>
+        <div class="row">
+          <p><strong>Consumables: </strong><%= @data['consumables'] %></p>
+        </div>
+        <div class="row">
+          <p><strong>Cost (credits): </strong> <%= @data['cost_in_credits'] %></p>
+        </div>
+        <div class="row">
+          <p><strong>Crew: </strong> <%= @data['crew'] %></p>
+        </div>
+        <div class="row">
+          <p><strong>Hyperdrive: </strong> <%= @data['hyperdrive_rating'] %></p>
+        </div>
+        <div class="row">
+          <p><strong>Length: </strong><%= @data['length'] %></p>
+        </div>
+        <div class="row">
+          <p><strong>Manufacturer: </strong><%= @data['manufacturer'] %></p>
+        </div>
+        <div class="row">
+          <p><strong>Max atmosphering speed: </strong><%= @data['max_atmosphering_speed'] %></p>
+        </div>
+        <div class="row">
+          <p><strong>Model: </strong><%= @data['model'] %></p>
+        </div>
+        <div class="row">
+          <p><strong>Passengers: </strong><%= @data['passengers'] %></p>
+        </div>
+        <div class="row">
+          <p><strong>Class: </strong><%= @data['starship_class'] %></p>
+        </div>
+      </div>
+    </head>
+    <main>
+      <div class="container">
+        <div class="row">
+          <div class="column">
+            Films<br>
+            <% @peliculas.each do |p| %>
+              <%= link_to p[0], movie_path(id: p[1]) %><br>
+            <% end %>
+          </div>
+          <div class="column">
+            <% @id = 1 %>
+            Pilots<br>
+            <% @pilotos.each do |p| %>
+              <%= link_to p[1], personaje_path(id: @id, json: p[0]) %><br>
+              <% @id += 1%>
+            <% end %> 
+          </div>
+        </div><br><br><br>
+        <div class="row">
+          <%= button_to "Home", root_path(), method: :get %>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

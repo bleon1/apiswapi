@@ -35,24 +35,27 @@
         </div>
         <div class="row">
           <div class="column">
-            Peliculas<br>
+            Films<br>
             <% @peliculas.each do |p| %>
               <%= link_to p[0], movie_path(id: p[1]) %><br>
             <% end %>
           </div>
           <div class="column">
             <% @id = 1 %>
-            Planeta Natal<br>
-            <%= link_to @planeta['name'], planeta_path(id: 1, url: @homeworld) %><br>
+            Homeworld<br>
+            <%= link_to @planeta['name'], planeta_path(id: 1, json: @planeta) %><br>
           </div>
           <div class="column">
             <% @id = 1 %>
-            Naves Espaciales<br>
+            Starships<br>
             <% @naves.each do |n| %>
               <%= link_to n[1], spaceship_path(id: @id, json: n[0]) %><br>
               <% @id += 1%>
             <% end %> 
           </div>
+        </div><br><br><br>
+        <div class="row">
+          <%= button_to "Home", root_path(), method: :get %>
         </div>
       </div>
     </main>

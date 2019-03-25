@@ -20,6 +20,26 @@ module Hola
     return @personajes
   end
 
+  def api_request_pilots(data)
+    @pilotos = []
+    @urls = data['pilots']
+    @urls.each do |u|
+      @datos = HTTParty.get(u)
+      @pilotos << [@datos, @datos['name']]
+    end
+    return @pilotos
+  end
+
+  def api_request_residents(data)
+    @residentes = []
+    @urls = data['residents']
+    @urls.each do |u|
+      @datos = HTTParty.get(u)
+      @residentes << [@datos, @datos['name']]
+    end
+    return @residentes
+  end
+
   def api_request_planets(data)
     @planetas = []
     @urls = data['planets']
@@ -32,7 +52,7 @@ module Hola
 
   def api_request_home_planet(data)
     @planeta = HTTParty.get(data['homeworld'])
-    return @planeta, data['homeworld']
+    return @planeta
   end
 
   def api_request_starships(data)
