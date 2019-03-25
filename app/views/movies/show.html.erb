@@ -7,12 +7,19 @@
           <h1><strong><%= @data['title'] %></strong></h1>
         </div>
         <div class="row">
-          <p>Directed by: <strong><%= @data['director'] %></strong></p>
-        </div><div class="row">
-          <p>Produced by: <strong><%= @data['producer'] %></strong></p>
+          <p><strong>Episode: </strong><%= @data['episode_id'] %></p>
         </div>
         <div class="row">
-          <p>Introduction: <%= @data['opening_crawl'] %></p>
+          <p><strong>Directed by: </strong><%= @data['director'] %></p>
+        </div>
+        <div class="row">
+          <p><strong>Produced by: </strong><%= @data['producer'] %></p>
+        </div>
+        <div class="row">
+          <p><strong>Release date: </strong><%= @data['release_date'] %></p>
+        </div>
+        <div class="row">
+          <p><strong>Introduction: </strong><%= @data['opening_crawl'] %></p>
         </div>
       </div>
     </head>
