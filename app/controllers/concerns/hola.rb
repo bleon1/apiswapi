@@ -1,5 +1,10 @@
 module Hola
 
+  def api_get_species(data)
+    @especie = HTTParty.get(data['species'][0])['name']
+    return @especie
+  end
+
   def api_request_movies(data)
     @peliculas = []
     @urls = data['films']

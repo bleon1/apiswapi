@@ -5,5 +5,6 @@ class PersonajesController < ApplicationController
     @peliculas = api_request_movies(@data)
     @planeta = api_request_home_planet(@data)
     @naves = api_request_starships(@data)
+    @especie = api_get_species(@data)
   end
 end
